@@ -22,38 +22,74 @@ namespace LinkedList_CSharp
                 }
                 temp.next = node;
             }
-            Console.WriteLine("Inserted into Linked List :  {0}", node.data);
-        }
-
-        public void AddFirst(int data)
-        {
-
-            Node Node = new Node(data);
-            Node.next = this.head;
-            this.head = Node;
-            Console.WriteLine("{0}is inserted into LikedList", Node.data);
-        }
-        public void Append(int data)
-        {
-            Node Node = new Node(data);
-            Node.next = this.head;
-            this.head = Node;
-            Console.WriteLine("{0} is inserted ", Node.data);
-
+            Console.WriteLine("{0} inserted into linked list", node.data);
         }
         public void Display()
         {
             Node temp = this.head;
             if (temp == null)
             {
-                Console.WriteLine(" Linked List is Empty ");
+                Console.WriteLine("Linked List is empty");
+                return;
             }
             while (temp != null)
             {
-                Console.WriteLine(temp.data + " ");
+                Console.Write(temp.data + " ");
                 temp = temp.next;
             }
         }
+
+        public int Search(int value)
+        {
+            Node node = this.head;
+            int count = 0;
+            while (node != null)
+            {
+                if (node.data == value)
+                {
+                    return count;
+                }
+                node = node.next;
+                count++;
+            }
+            return count;
+        }
+        public Node InsertParticularPosition(int Position, int Data)
+        {
+            if (Position < 1)
+            {
+                Console.WriteLine("Invalid Position");
+            }
+            if (Position == 1)
+            {
+                var newNode = new Node(Data);
+                newNode.next = this.head;
+                head = newNode;
+            }
+            else
+            {
+                while (Position-- != 0)
+                {
+                    if (Position == 1)
+                    {
+                        Node node = new Node(Data);
+                        node.next = this.head.next;
+                        head.next = node;
+                        break;
+                    }
+                    head = head.next;
+                }
+                if (Position != 1)
+                {
+                    Console.WriteLine("Position Out Of Range ");
+                }
+
+            }
+            return head;
+
+        }
+
+       
     }
 }
 
