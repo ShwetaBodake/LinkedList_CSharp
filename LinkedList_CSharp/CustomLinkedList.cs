@@ -6,7 +6,7 @@ namespace LinkedList_CSharp
 	public class CustomLinkedList
 	{
         public Node head;
-        internal void Add(int data)
+        public void Add(int data)
         {
             Node node = new Node(data);
             if (this.head == null)
@@ -24,7 +24,16 @@ namespace LinkedList_CSharp
             }
             Console.WriteLine("Inserted into Linked List :  {0}", node.data);
         }
-        internal void Display()
+
+        public void AddFirst(int data)
+        {
+
+            Node Node = new Node(data);
+            Node.next = this.head;
+            this.head = Node;
+            Console.WriteLine("{0}is inserted into LikedList", Node.data);
+        }
+        public void Display()
         {
             Node temp = this.head;
             if (temp == null)
