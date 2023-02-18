@@ -39,14 +39,40 @@ namespace LinkedList_CSharp
             }
         }
 
-        public void RemoveFirstNode()
+        public void DeleteLastNode()
         {
-            if (head == null)
-                Console.WriteLine("Its empty please add nodes");
+            Node temp = head;
+            if (temp == null)
+            {
+                Console.WriteLine("Linked list is empty");
+            }
+            else if (temp.next == null)
+            {
+                int data = temp.data;
+                temp = null;
+                head = temp;
+                Console.WriteLine("{0} is deleted", data);
+            }
             else
-                Console.WriteLine("{0} is removed", head.data);
-            head = head.next;
+            {
+                while (temp.next.next != null)
+                {
+                    temp = temp.next;
+                }
+                int lastDeletedNode = temp.next.data;
+                temp.next = null;
+                Console.WriteLine("{0} is deleted", lastDeletedNode);
+            }
         }
+
+        //public void RemoveFirstNode()
+        //{
+        //    if (head == null)
+        //        Console.WriteLine("Its empty please add nodes");
+        //    else
+        //        Console.WriteLine("{0} is removed", head.data);
+        //    head = head.next;
+        //}
 
         public int Search(int value)
         {

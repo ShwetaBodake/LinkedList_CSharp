@@ -11,7 +11,7 @@ class Program
             customLinkedList.Add(56);
             customLinkedList.Add(30);
             customLinkedList.Add(70);
-            customLinkedList.RemoveFirstNode();
+            customLinkedList.DeleteLastNode();
             customLinkedList.Display();
             //customLinkedList.Add(56);
             //customLinkedList.Add(30);
