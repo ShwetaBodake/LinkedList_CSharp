@@ -39,31 +39,56 @@ namespace LinkedList_CSharp
             }
         }
 
-        public void DeleteLastNode()
+        public bool Search(int value)
         {
-            Node temp = head;
-            if (temp == null)
+            Node node = this.head;
+            int count = 0;
+            while (node != null)
             {
-                Console.WriteLine("Linked list is empty");
+                if (node.data == value)
+                {
+                   break;
+                }
+                node = node.next;
+                count++;
             }
-            else if (temp.next == null)
+            if (node == null)
             {
-                int data = temp.data;
-                temp = null;
-                head = temp;
-                Console.WriteLine("{0} is deleted", data);
+                Console.WriteLine(node + "not present in linkedlist");
+                return false;
             }
             else
             {
-                while (temp.next.next != null)
-                {
-                    temp = temp.next;
-                }
-                int lastDeletedNode = temp.next.data;
-                temp.next = null;
-                Console.WriteLine("{0} is deleted", lastDeletedNode);
+                Console.WriteLine(node.data + "  present at " + count + " position in linkedlist");
+                return true;
             }
         }
+
+        //public void DeleteLastNode()
+        //{
+        //    Node temp = head;
+        //    if (temp == null)
+        //    {
+        //        Console.WriteLine("Linked list is empty");
+        //    }
+        //    else if (temp.next == null)
+        //    {
+        //        int data = temp.data;
+        //        temp = null;
+        //        head = temp;
+        //        Console.WriteLine("{0} is deleted", data);
+        //    }
+        //    else
+        //    {
+        //        while (temp.next.next != null)
+        //        {
+        //            temp = temp.next;
+        //        }
+        //        int lastDeletedNode = temp.next.data;
+        //        temp.next = null;
+        //        Console.WriteLine("{0} is deleted", lastDeletedNode);
+        //    }
+        //}
 
         //public void RemoveFirstNode()
         //{
@@ -74,21 +99,7 @@ namespace LinkedList_CSharp
         //    head = head.next;
         //}
 
-        public int Search(int value)
-        {
-            Node node = this.head;
-            int count = 0;
-            while (node != null)
-            {
-                if (node.data == value)
-                {
-                    return count;
-                }
-                node = node.next;
-                count++;
-            }
-            return count;
-        }
+
         //public Node InsertParticularPosition(int Position, int Data)
         //{
         //    if (Position < 1)
@@ -124,7 +135,7 @@ namespace LinkedList_CSharp
 
         //}
 
-       
+
     }
 }
 
