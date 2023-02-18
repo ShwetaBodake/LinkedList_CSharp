@@ -8,6 +8,11 @@ class Program
         {
             Console.WriteLine("Welcome to Linked List ");
             CustomLinkedList customLinkedList = new CustomLinkedList();
+            customLinkedList.Add(56);
+            customLinkedList.Add(30);
+            customLinkedList.Add(70);
+            customLinkedList.RemoveFirstNode();
+            customLinkedList.Display();
             //customLinkedList.Add(56);
             //customLinkedList.Add(30);
             //customLinkedList.Add(70);
@@ -22,14 +27,14 @@ class Program
             //customLinkedList.Append(70);
             //customLinkedList.Display();
 
-            customLinkedList.Add(56);
-            customLinkedList.Add(70);
-            customLinkedList.Display();
+            //customLinkedList.Add(56);
+            //customLinkedList.Add(70);
+            //customLinkedList.Display();
 
-            int a = customLinkedList.Search(56);
-            Console.WriteLine("Index Position Of 56 is " + a);
-            customLinkedList.InsertParticularPosition(a + 1, 30);
-            customLinkedList.Display();
+            //int a = customLinkedList.Search(56);
+            //Console.WriteLine("Index Position Of 56 is " + a);
+            //customLinkedList.InsertParticularPosition(a + 1, 30);
+            //customLinkedList.Display();
 
             Console.ReadLine();
         }

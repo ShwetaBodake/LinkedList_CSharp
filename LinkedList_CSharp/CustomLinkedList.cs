@@ -39,6 +39,15 @@ namespace LinkedList_CSharp
             }
         }
 
+        public void RemoveFirstNode()
+        {
+            if (head == null)
+                Console.WriteLine("Its empty please add nodes");
+            else
+                Console.WriteLine("{0} is removed", head.data);
+            head = head.next;
+        }
+
         public int Search(int value)
         {
             Node node = this.head;
@@ -54,40 +63,40 @@ namespace LinkedList_CSharp
             }
             return count;
         }
-        public Node InsertParticularPosition(int Position, int Data)
-        {
-            if (Position < 1)
-            {
-                Console.WriteLine("Invalid Position");
-            }
-            if (Position == 1)
-            {
-                var newNode = new Node(Data);
-                newNode.next = this.head;
-                head = newNode;
-            }
-            else
-            {
-                while (Position-- != 0)
-                {
-                    if (Position == 1)
-                    {
-                        Node node = new Node(Data);
-                        node.next = this.head.next;
-                        head.next = node;
-                        break;
-                    }
-                    head = head.next;
-                }
-                if (Position != 1)
-                {
-                    Console.WriteLine("Position Out Of Range ");
-                }
+        //public Node InsertParticularPosition(int Position, int Data)
+        //{
+        //    if (Position < 1)
+        //    {
+        //        Console.WriteLine("Invalid Position");
+        //    }
+        //    if (Position == 1)
+        //    {
+        //        var newNode = new Node(Data);
+        //        newNode.next = this.head;
+        //        head = newNode;
+        //    }
+        //    else
+        //    {
+        //        while (Position-- != 0)
+        //        {
+        //            if (Position == 1)
+        //            {
+        //                Node node = new Node(Data);
+        //                node.next = this.head.next;
+        //                head.next = node;
+        //                break;
+        //            }
+        //            head = head.next;
+        //        }
+        //        if (Position != 1)
+        //        {
+        //            Console.WriteLine("Position Out Of Range ");
+        //        }
 
-            }
-            return head;
+        //    }
+        //    return head;
 
-        }
+        //}
 
        
     }
