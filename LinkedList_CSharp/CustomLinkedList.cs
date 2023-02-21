@@ -24,6 +24,48 @@ namespace LinkedList_CSharp
             }
             Console.WriteLine("{0} inserted into linked list", node.data);
         }
+
+        public void DeleteInBetweenelement(int node)
+        {
+            if (head == null)
+            {
+                Console.WriteLine("linked list is empty");
+                return;
+            }
+            if (head.data == node)
+            {
+                head = head.next;
+                return;
+            }
+            Node temp = head;
+            while (temp.next != null)
+            {
+                if (temp.next.data == node)
+                {
+                    break;
+                }
+                temp = temp.next;
+            }
+            if (temp.next == null)
+            {
+                Console.WriteLine("Element" + node + "not present in linked list");
+            }
+            else
+            {
+                temp.next = temp.next.next;
+            }
+        }
+        public void GetSize()
+        {
+            int count = 0;
+            Node temp = head;
+            while (temp != null)
+            {
+                count++;
+                temp = temp.next;
+            }
+            Console.WriteLine("\n\nNumber of node in linkedlist: {0}", count);
+        }
         public void Display()
         {
             Node temp = this.head;
@@ -39,53 +81,53 @@ namespace LinkedList_CSharp
             }
         }
 
-        public void InsertAfterGivenNode(int addNode, int givenNode)
-        {
-            Node temp = head;
-            while (temp != null)
-            {
-                if (temp.data == givenNode)
-                {
-                    break;
-                }
-                temp = temp.next;
-            }
-            if (temp == null)
-            {
-                Console.WriteLine(givenNode + " not present in linked list");
-            }
-            else
-            {
-                Node newNode = new Node(addNode);
-                newNode.next = temp.next;
-                temp.next = newNode;
-            }
-        }
+        //public void InsertAfterGivenNode(int addNode, int givenNode)
+        //{
+        //    Node temp = head;
+        //    while (temp != null)
+        //    {
+        //        if (temp.data == givenNode)
+        //        {
+        //            break;
+        //        }
+        //        temp = temp.next;
+        //    }
+        //    if (temp == null)
+        //    {
+        //        Console.WriteLine(givenNode + " not present in linked list");
+        //    }
+        //    else
+        //    {
+        //        Node newNode = new Node(addNode);
+        //        newNode.next = temp.next;
+        //        temp.next = newNode;
+        //    }
+        //}
 
-        public bool Search(int value)
-        {
-            Node node = this.head;
-            int count = 0;
-            while (node != null)
-            {
-                if (node.data == value)
-                {
-                   break;
-                }
-                node = node.next;
-                count++;
-            }
-            if (node == null)
-            {
-                Console.WriteLine(node.data + "not present in linkedlist");
-                return false;
-            }
-            else
-            {
-                Console.WriteLine(node.data + "  present at " + count + " position in linkedlist");
-                return true;
-            }
-        }
+        //public bool Search(int value)
+        //{
+        //    Node node = this.head;
+        //    int count = 0;
+        //    while (node != null)
+        //    {
+        //        if (node.data == value)
+        //        {
+        //           break;
+        //        }
+        //        node = node.next;
+        //        count++;
+        //    }
+        //    if (node == null)
+        //    {
+        //        Console.WriteLine(node.data + "not present in linkedlist");
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(node.data + "  present at " + count + " position in linkedlist");
+        //        return true;
+        //    }
+        //}
 
         //public void DeleteLastNode()
         //{
