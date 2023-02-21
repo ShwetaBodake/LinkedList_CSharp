@@ -39,6 +39,29 @@ namespace LinkedList_CSharp
             }
         }
 
+        public void InsertAfterGivenNode(int addNode, int givenNode)
+        {
+            Node temp = head;
+            while (temp != null)
+            {
+                if (temp.data == givenNode)
+                {
+                    break;
+                }
+                temp = temp.next;
+            }
+            if (temp == null)
+            {
+                Console.WriteLine(givenNode + " not present in linked list");
+            }
+            else
+            {
+                Node newNode = new Node(addNode);
+                newNode.next = temp.next;
+                temp.next = newNode;
+            }
+        }
+
         public bool Search(int value)
         {
             Node node = this.head;
@@ -54,7 +77,7 @@ namespace LinkedList_CSharp
             }
             if (node == null)
             {
-                Console.WriteLine(node + "not present in linkedlist");
+                Console.WriteLine(node.data + "not present in linkedlist");
                 return false;
             }
             else
